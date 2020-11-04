@@ -1,0 +1,14 @@
+{
+  "throttle": 3000,
+  "restart": {
+    "exclude": [
+      "^public/",
+      "^dist/",
+      "^tests/"
+    ],
+    "include": [
+      "\\.elm$",
+      "\\.js$"
+    ]
+  }
+}

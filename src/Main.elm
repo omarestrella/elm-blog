@@ -6,12 +6,12 @@ import Shared exposing (Flags)
 import Spa.Document as Document exposing (Document)
 import Spa.Generated.Pages as Pages
 import Spa.Generated.Route as Route exposing (Route)
-import Url exposing (Url)
+import Url exposing (Url) 
 
 
 main : Program Flags Model Msg
 main =
-    Browser.application
+    Browser.application 
         { init = init
         , update = update
         , subscriptions = subscriptions

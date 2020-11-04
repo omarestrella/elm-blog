@@ -1,5 +1,0 @@
-[build]
-  functions = "api"
-  command = "npm run build"
-  publish = "public"
-  environment = { NODE_VERSION = "14.15.0" }
