@@ -31,6 +31,6 @@ page =
 
 view : Url Params -> Document Msg
 view { params } =
-    { title = "Homepage"
-    , body = [ text "Homepage" ]
+    { title = "Home"
+    , body = [ text "Home" ]
     }
