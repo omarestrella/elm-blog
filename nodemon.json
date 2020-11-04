@@ -1,0 +1,5 @@
+{
+  "verbose": true,
+  "watch": ["api/*.*"],
+  "ignore": ["public/", "tests/", "src/"]
+}

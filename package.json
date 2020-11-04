@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A project created with elm-spa",
   "scripts": {
-    "start": "npm install && npm run build:dev && npm run dev",
+    "api:start": "~/.volta/bin/nodemon api/app.mjs --watch \"api/*.*\"",
+    "ui:start": "npm install && npm run build:dev && npm run dev",
     "test": "elm-test",
     "test:watch": "elm-test --watch",
     "build": "run-s build:elm-spa build:elm",
@@ -12,7 +13,7 @@
     "build:elm": "elm make src/Main.elm --optimize --output=public/dist/elm.compiled.js",
     "build:dev:elm": "elm make src/Main.elm --debug --output=public/dist/elm.compiled.js || true",
     "build:elm-spa": "elm-spa build .",
-    "dev:elm": "elm-live src/Main.elm -u -d public -- --debug --output=public/dist/elm.compiled.js",
+    "dev:elm": "elm-live src/Main.elm -u -d public -x /api -y http://localhost:3000 -- --debug --output=public/dist/elm.compiled.js",
     "dev:elm-spa": "chokidar src/Pages -c \"elm-spa build .\""
   },
   "keywords": [],
@@ -32,5 +33,8 @@
   },
   "volta": {
     "node": "14.15.0"
+  },
+  "dependencies": {
+    "koa": "^2.13.0"
   }
 }
