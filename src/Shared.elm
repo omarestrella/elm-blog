@@ -72,6 +72,7 @@ view { page, toMsg } model =
         [ div [ css [ margin (px 20), fontFamily sansSerif ] ]
             [ header [ css [ displayFlex ] ]
                 [ a [ css [ color (rgb 0 100 200), textDecoration underline, marginRight (px 20) ], href (Route.toString Route.Top) ] [ text "Homepage" ]
+                , a [ css [ color (rgb 0 100 200), textDecoration underline, marginRight (px 20) ], href (Route.toString Route.About) ] [ text "About" ]
                 , a [ css [ color (rgb 0 100 200), textDecoration underline ], href (Route.toString Route.NotFound) ] [ text "Not found" ]
                 ]
             , div [ css [ marginTop (px 20) ] ] page.body
