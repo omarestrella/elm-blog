@@ -1,5 +1,6 @@
-module Pages.About exposing (Params, Model, Msg, page)
+module Pages.About exposing (Model, Msg, Params, page)
 
+import Html.Styled exposing (..)
 import Spa.Document exposing (Document)
 import Spa.Page as Page exposing (Page)
 import Spa.Url as Url exposing (Url)
@@ -31,5 +32,10 @@ type alias Params =
 view : Url Params -> Document Msg
 view { params } =
     { title = "About"
-    , body = []
+    , body =
+        [ div []
+            [ h1 [] [ text "My Blog" ]
+            , p [] [ text "There are many blogs out there, but this one is mine." ]
+            ]
+        ]
     }
