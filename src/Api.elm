@@ -2,7 +2,7 @@ module Api exposing (..)
 
 import Http
 import Json.Decode as Decode
-import Models exposing (Post)
+import Models exposing (Comment, Post)
 import Url.Builder as Url
 
 
@@ -27,4 +27,16 @@ getPosts msg =
     Http.get
         { url = url
         , expect = Http.expectJson msg (Decode.at [ "posts" ] (Decode.list Models.postDecoder))
+        }
+
+
+getComments : String -> (Result Http.Error (List Comment) -> msg) -> Cmd msg
+getComments postId msg =
+    let
+        url =
+            Url.absolute [ "api", "posts", postId, "comments" ] []
+    in
+    Http.get
+        { url = url
+        , expect = Http.expectJson msg (Decode.at [ "comments" ] (Decode.list Models.commentDecoder))
         }
