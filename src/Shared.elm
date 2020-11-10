@@ -77,8 +77,6 @@ view { page, toMsg } model =
             [ header [ css [ Global.navigation ] ]
                 [ a [ css [ Global.navigationLink ], href (Route.toString Route.Top) ]
                     [ text "Homepage" ]
-                , a [ css [ Global.navigationLink ], href (Route.toString Route.About) ]
-                    [ text "About" ]
                 ]
             , div [ css [ marginTop (px 20) ] ] page.body
             ]

@@ -17,16 +17,16 @@ type alias Params =
 
 
 type alias Model =
-    { posts : List Models.Post }
+    {}
 
 
 type Msg
-    = LoadedPosts (Result Http.Error (List Models.Post))
+    = Never
 
 
 init : Url Params -> ( Model, Cmd Msg )
 init _ =
-    ( { posts = [] }, Api.getPosts LoadedPosts )
+    ( {}, Cmd.none )
 
 
 
@@ -35,14 +35,7 @@ init _ =
 
 update : Msg -> Model -> ( Model, Cmd msg )
 update msg model =
-    case msg of
-        LoadedPosts result ->
-            case result of
-                Ok posts ->
-                    ( { model | posts = posts }, Cmd.none )
-
-                Err _ ->
-                    ( model, Cmd.none )
+    ( model, Cmd.none )
 
 
 page : Page Params Model Msg
@@ -59,27 +52,10 @@ page =
 -- VIEW
 
 
-postView : Models.Post -> Html Msg
-postView post =
-    div []
-        [ h3 []
-            [ a [ href (Route.toString (Route.Post__Id_String { id = post.id })) ]
-                [ text post.title ]
-            ]
-        ]
-
-
-postsList : Model -> Html Msg
-postsList model =
-    div []
-        (List.map postView model.posts)
-
-
 view : Model -> Document Msg
 view model =
     { title = "Home"
     , body =
         [ h1 [] [ text "Welcome to my blog!" ]
-        , postsList model
         ]
     }
