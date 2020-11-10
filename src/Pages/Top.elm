@@ -63,7 +63,7 @@ postView : Models.Post -> Html Msg
 postView post =
     div []
         [ h3 []
-            [ a [ href (Route.toString (Route.Post__Id_String { id = post.id })) ]
+            [ a [ href "#" ]
                 [ text post.title ]
             ]
         ]
